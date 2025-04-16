@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Bluetooth 5.0 Transmitter Product Homepage</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --main-color: #8B2942;
+      --container-width: 1400px;
+    }
+    html, body {
+      font-size: 16px;
+      width: 100%;
+      min-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(to bottom, #fff5f5, #ffe4e4);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation Styles */
+    .nav-wrapper {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .main-nav {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(139, 41, 66, 0.1);
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--main-color);
+      text-decoration: none;
+    }
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--main-color);
+      cursor: pointer;
+    }
+    .nav-bottom {
+      padding: 1rem 0;
+    }
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .nav-menu a:hover {
+      background: rgba(139, 41, 66, 0.1);
+      color: var(--main-color);
+    }
+    .nav-submenu {
+      position: absolute;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 0.5rem;
+      min-width: 150px;
+      display: none;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-menu li {
+      position: relative;
+    }
+    .nav-menu li:hover .nav-submenu {
+      display: block;
+    }
+    .nav-submenu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #333;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .nav-submenu a:hover {
+      background: rgba(139, 41, 66, 0.1);
+      color: var(--main-color);
+    }
+
+    header {
+      background: var(--main-color);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+    }
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 2rem;
+      flex: 1;
+    }
+    .product-section {
+      display: flex;
+      gap: 3rem;
+      background: white;
+      padding: 3rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+    }
+    .product-image {
+      flex: 1;
+      max-width: 600px;
+    }
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      border: 8px solid rgba(139, 41, 66, 0.1);
+    }
+    .product-info {
+      flex: 1;
+      max-width: 600px;
+    }
+    .product-info p {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .product-info ul {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .product-info li {
+      margin-bottom: 1rem;
+    }
+    .video-container {
+      margin-top: 2rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      position: relative;
+      padding-top: 56.25%;
+      border: 8px solid rgba(139, 41, 66, 0.1);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .content-layout {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .specs-section {
+      flex: 2;
+    }
+    .specs-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(139, 41, 66, 0.1);
+      font-size: 1.1rem;
+    }
+    .spec-label {
+      font-weight: 600;
+      color: var(--main-color);
+    }
+    .models-section {
+      flex: 1;
+      min-width: 300px;
+    }
+    .models-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 2rem;
+    }
+    .models-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .model-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(139, 41, 66, 0.1);
+    }
+    .model-card h3 {
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .price {
+      color: var(--main-color);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    footer {
+      background: var(--main-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      width: 100%;
+      margin-top: auto;
+    }
+    h1 { 
+      font-size: 3rem;
+      margin: 0 auto;
+      max-width: var(--container-width);
+    }
+    h2 { 
+      color: var(--main-color);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--main-color);
+      padding-bottom: 0.75rem;
+    }
+
+    @media screen and (max-width: 1440px) {
+      :root {
+        --container-width: 1200px;
+      }
+      .container {
+        padding: 2rem;
+      }
+      .product-section {
+        padding: 2.5rem;
+        gap: 2.5rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      :root {
+        --container-width: 1000px;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      .product-section {
+        padding: 2rem;
+        gap: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      :root {
+        --container-width: 800px;
+      }
+      .content-layout {
+        flex-direction: column;
+      }
+      .models-section {
+        width: 100%;
+      }
+      .models-content {
+        position: static;
+      }
+      h1 {
+        font-size: 2.25rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+      .nav-menu {
+        gap: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      :root {
+        --container-width: 100%;
+      }
+      .product-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-image,
+      .product-info {
+        max-width: 100%;
+      }
+      .container {
+        padding: 1rem;
+      }
+      .product-info p {
+        font-size: 1.1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .mobile-nav-toggle {
+        display: block;
+      }
+      .nav-bottom {
+        display: none;
+      }
+      .nav-bottom.active {
+        display: block;
+      }
+      .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      .nav-menu a {
+        width: 100%;
+        text-align: center;
+      }
+      .nav-submenu {
+        position: static;
+        box-shadow: none;
+        display: none;
+        padding-left: 1rem;
+        transform: none;
+        left: 0;
+      }
+      .nav-menu li:hover .nav-submenu {
+        display: none;
+      }
+      .nav-menu li.active .nav-submenu {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container {
+        padding: 0.75rem;
+      }
+      .product-section {
+        padding: 1.5rem;
+      }
+      .spec-item {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      .product-info p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrapper">
+    <nav class="main-nav">
+      <div class="nav-top">
+        <a href="/" class="nav-logo">BT5.0</a>
+        <button class="mobile-nav-toggle">☰</button>
+      </div>
+      <div class="nav-bottom">
+        <ul class="nav-menu">
+          <li><a href="/products">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li>
+            <a href="/support">Support</a>
+            <div class="nav-submenu">
+              <a href="/faq/general">General FAQs</a>
+              <a href="/faq/technical">Technical FAQs</a>
+              <a href="/faq/shipping">Shipping FAQs</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <header>
+    <h1>Bluetooth 5.0 Transmitter</h1>
+  </header>
+
+  <div class="container">
+    <section class="product-section">
+      <div class="product-image">
+        <img src="https://m.media-amazon.com/images/I/61UoAe25KfL._AC_UF894,1000_QL80_.jpg" alt="Bluetooth 5.0 Transmitter">
+      </div>
+      <div class="product-info">
+        <h2>Premium Bluetooth 5.0 Transmitter</h2>
+        <p>Experience unparalleled wireless audio transmission with our state-of-the-art Bluetooth 5.0 Transmitter. This versatile device transforms any audio source with a 3.5mm output into a Bluetooth-enabled system.</p>
+        <ul style="list-style: none;">
+          <li>• Compatible with TVs, computers, and gaming consoles</li>
+          <li>• Supports dual device connection</li>
+          <li>• Advanced audio codec support including aptX</li>
+          <li>• Extended battery life with USB-C charging</li>
+        </ul>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/oMjW2AcGePI" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-layout">
+      <section class="specs-section">
+        <div class="specs-content">
+          <h2>Technical Specifications</h2>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">Bluetooth Version:</span>
+              <span>5.0 with EDR</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Battery Life:</span>
+              <span>30+ hours playback</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Audio Codecs:</span>
+              <span>SBC, aptX, aptX LL</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Range:</span>
+              <span>Up to 100 feet</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Audio Input:</span>
+              <span>3.5mm AUX, Optical</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Dimensions:</span>
+              <span>2.4" x 2.4" x 0.6"</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="models-section">
+        <div class="models-content">
+          <h2>Available Models</h2>
+          <div class="models-grid">
+            <div class="model-card">
+              <h3>Standard Model</h3>
+              <p class="price">$29.99</p>
+            </div>
+            <div class="model-card">
+              <h3>Pro Model with aptX HD</h3>
+              <p class="price">$49.99</p>
+            </div>
+            <div class="model-card">
+              <h3>Premium Package</h3>
+              <p class="price">$69.99</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    © 4/08/2025 Isaac Etokhana. All Rights Reserved.
+  </footer>
+
+  <script>
+    document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-bottom').classList.toggle('active');
+    });
+
+    // Handle mobile submenu toggles
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll('.nav-menu > li').forEach(item => {
+        const link = item.querySelector('a');
+        if (item.querySelector('.nav-submenu')) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            item.classList.toggle('active');
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
